@@ -390,7 +390,7 @@ high_temp_table <- gt(countries_high_temp) %>%
   )
 
 # Print the combined plot
-ps1 / patchwork::wrap_elements(high_temp_table, space = "free_x")
+ps1 / patchwork::wrap_table(high_temp_table, space = "free_x")
 ```
 
 ## Conclusion
