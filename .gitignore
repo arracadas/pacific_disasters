@@ -1,0 +1,100 @@
+# R
+.RData
+.Rhistory
+.Rproj.user/
+.Ruser/
+
+# R build outputs
+*.Rcheck/
+
+# RStudio
+.Rproj.user/
+.Rhistory
+.RData
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+*~$*
+Thumbs.db
+
+# Quarto
+.quarto/
+_quarto.yml
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ind
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.gls
+*.ist
+*.lol
+*.ltx
+*.maf
+*.spl
+*.dvi
+*.ps
+
+# Temporary files
+*.tmp
+*.temp
+
+# Data cache and intermediate files
+*.rds
+*.Rds
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment files
+.renv/
+renv.lock
+
+# Python (if used)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node.js (if used for web components)
+node_modules/
+package-lock.json
+
+# System files
+*~$*~
+*~$*.docx~
+*~$*.xlsx~
+
+# Alternate data streams (Windows)
+*:Zone.Identifier
+
+# Large binary files that shouldn't be tracked
+*.RData
