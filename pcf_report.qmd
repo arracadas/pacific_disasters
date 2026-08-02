@@ -389,8 +389,11 @@ high_temp_table <- gt(countries_high_temp) %>%
     locations = cells_title()
   )
 
-# Print the combined plot
-ps1 / patchwork::wrap_table(high_temp_table, space = "free_x")
+# Print the plot
+print(ps1)
+
+# Print the table separately
+high_temp_table
 ```
 
 ## Conclusion
