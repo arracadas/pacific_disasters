@@ -107,7 +107,7 @@ Only a year after Pam's arrival, **Winston** paid a visit — one of the most in
 
 The following visualization shows the increasing frequency and impact of disasters across Pacific Island nations since 2015:
 
-```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig-cap="Pacific Disasters: A New Era - Since 2015, most Pacific countries have experienced at least one disaster affecting 25% or more of their population (highlighted).", fig-pos='H'}
+```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Pacific Disasters: A New Era - Since 2015, most Pacific countries have experienced at least one disaster affecting 25% or more of their population (highlighted).", fig.pos='H'}
 # Recreate Fig.1 from pacific_data_viz.R
 p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
   geom_vline(
@@ -158,7 +158,7 @@ According to experts, **"exceptionally warm" ocean temperatures** above average,
 
 ### Figure 2: Unprecedented Economic Damage
 
-```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig-cap="Unprecedented Economic Damage - The damage to food stocks and critical infrastructure has reached new heights.", fig-pos='H'}
+```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Unprecedented Economic Damage - The damage to food stocks and critical infrastructure has reached new heights.", fig.pos='H'}
 # Recreate Fig.2 from pacific_data_viz.R - Vanuatu plot
 pcf_dis_economic_vu <- pcf_dis_economic %>% filter(Country == "Vanuatu")
 
@@ -301,7 +301,7 @@ Although climate change and El Niño are not associated with each other, they fe
 
 ### Figure 3: Hot Water
 
-```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig-cap="Hot Water - Sea temperature anomalies in the South Pacific have followed an upward trend for two decades.", fig-pos='H'}
+```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Hot Water - Sea temperature anomalies in the South Pacific have followed an upward trend for two decades.", fig.pos='H'}
 # Recreate Fig.3 from pacific_data_viz.R
 max_temp <- pcf_sea_anomalies %>% pull(Temp) %>% max(na.rm = TRUE)
 min_temp <- pcf_sea_anomalies %>% pull(Temp) %>% min(na.rm = TRUE)
