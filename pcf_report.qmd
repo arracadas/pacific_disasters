@@ -89,7 +89,7 @@ In the morning of 13 March, 2015, more than 2000 people were sheltering in evacu
 
 ![Cyclone Pam Devastation](assets/cyclone_pam_disaster.jpeg){fig-alt="Aerial view of Cyclone Pam destruction in Vanuatu" width="80%"}
 
-The devastation across the archipelago was unprecedented, affecting approximately **188,000 people** (over half the population), with up to 90% of buildings in the capital, Port Vila, damaged or destroyed. Total estimated economic losses reached **$449 million** (roughly 64% of Vanuatu's GDP).
+The devastation across the archipelago was unprecedented, affecting approximately **188,000 people** (over half the population), with up to 90% of buildings in the capital, Port Vila, damaged or destroyed. Total estimated economic losses reached **\$449 million** (roughly 64% of Vanuatu's GDP).
 
 ## Introduction: The Pacific's Unique Vulnerability
 
@@ -295,7 +295,7 @@ People in the Pacific know **El Niño** all too well - a recurring climate patte
 
 The 2015-2016 edition was exceptional, nurturing strong tropical storms such as Winston. But again, nothing new here for Pacific Islanders.
 
-The data shows another important milestone for the South Pacific reached in 2015. For years, sea temperatures have been rising steadily from global warming; yet in 2015, **the first temperature anomaly > 1°C was recorded near the island of Kiribati**. Ever since, there's been four more anomalies at that level. Perhaps a new era of warmer sea waters.
+The data shows another important milestone for the South Pacific reached in 2015. For years, sea temperatures have been rising steadily from global warming; yet in 2015, **the first temperature anomaly \> 1°C was recorded near the island of Kiribati**. Ever since, there's been four more anomalies at that level. Perhaps a new era of warmer sea waters.
 
 Although climate change and El Niño are not associated with each other, they feed into each other. The knock-on effect for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones such as Pam and Winston that can upend the lives of so many people and bring unprecedented damage to the economies that sustain them.
 
@@ -410,8 +410,8 @@ The analysis presented in this report demonstrates a clear pattern: since 2015, 
 
 The data tells a compelling story of a region at the frontlines of climate change. Understanding these patterns and preparing appropriate responses will be crucial for the resilience and survival of Pacific Island nations in the decades to come.
 
----
+------------------------------------------------------------------------
 
-*Report prepared for Pacific Data Viz Challenge 2026*  
-*Data analysis and visualizations: jortega*  
+*Report prepared for Pacific Data Viz Challenge 2026*\
+*Data analysis and visualizations: jortega*\
 *Source data: Pacific Data Hub, United Nations, World Bank*
