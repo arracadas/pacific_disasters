@@ -1,29 +1,10 @@
 ---
 title: "Climate Risk: A New Era for the South Pacific"
-author: "Pacific Data Viz Challenge 2026"
-format: 
+author: "Juan J. Ortiz Ortega"
+format:
   html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
+    toc: false
     css: styles.css
-    embed-resources: true
-  pdf:
-    documentclass: article
-    papersize: a4
-    geometry:
-      - top=25mm
-      - left=25mm
-      - right=25mm
-      - bottom=25mm
-    toc: true
-    number-sections: true
-    fig-pos: 'H'
-  docx:
-    toc: true
-    number-sections: true
-reference-location: margin
-fig-cap-location: bottom
 ---
 
 ```{r setup, include=FALSE}
@@ -64,51 +45,40 @@ pcf_dis_economic <- readRDS("./data/pcf_dis_economic_clean.rds")
 pcf_sea_anomalies <- readRDS("./data/pcf_sea_temp_anomalies_clean.rds")
 
 # Common theme for all plots
-common_theme <- theme_minimal(base_family = "jost") + 
+# Adjusted sizes
+common_theme <- theme_minimal(base_family = "jost") +
   theme(
-    plot.title = element_text(face = "bold", size = rel(1.4), color = "#FF6B6B"),
-    plot.subtitle = element_text(family = "roboto", size = rel(1.1), color = "gray40", 
-                                lineheight = 1.1, margin = margin(t = 6, b = 20)),
-    plot.caption = element_text(color = "grey40"),
-    axis.title.x = element_text(hjust = 0, color = "gray40"),
-    axis.title.y = element_text(hjust = -0.5, vjust = 3, color = "gray40"),
-    axis.text.y = element_text(color = "gray40", size = 12),
-    axis.text.x = element_text(color = "gray40", size = 12),
-    legend.title = element_text(color = "gray40", size = rel(1.1), hjust = 0.5),
-    legend.text = element_text(color = "gray40", hjust = 0.5, margin = margin(t = 4)),
-    plot.tag = element_text(size = rel(1)),
-    plot.margin = margin(0.8, 0.8, 0.8, 0.8, unit = "cm")
+    plot.title = element_text(face = "bold", size = 40, color = "#FF6B6B"),
+    plot.subtitle = element_text(family = "roboto", size = 26, color = "gray40",
+                                lineheight = 1.2, margin = margin(t = 6, b = 20)),
+    plot.caption = element_text(color = "grey40", size = 20),
+    axis.title.x = element_text(hjust = 0, color = "gray40", size = 24),
+    axis.title.y = element_text(hjust = -0.5, vjust = 3, color = "gray40", size = 24),
+    axis.text.y = element_text(color = "gray40", size = 24),
+    axis.text.x = element_text(color = "gray40", size = 24),
+    legend.title = element_text(color = "gray40", size = 24, hjust = 0.5),
+    legend.text = element_text(color = "gray40", hjust = 0.5, margin = margin(t = 4), size = 22),
+    plot.tag = element_text(size = 24),
+    plot.margin = margin(1, 1, 1, 1, unit = "cm")
   )
 ```
 
-# Climate Risk: A New Era for the South Pacific
+On March 13th 2015, an ominous sensation swept over the shores of Port Vila. Hotels, schools and roads were deserted. More than 2000 people were sheltering in evacuation centres. Disaster was on the horizon.
 
-## Executive Summary
+That evening, just before midnight, **Pam**, a category five cyclone, struck Vanuatu’s capital with extremely destructive force. Winds reaching 250kmph ripped off metal roofs from houses and schools; communications and power infrastructure were destroyed or heavily damaged; crops were wiped out and food stocks blown into debris. The devastation was unprecedented, affecting 188,000 people (over half the population), with up to 90% of buildings damaged or destroyed. Total estimated economic losses reached \$449 million (roughly 64% of Vanuatu’s GDP).
 
-In the morning of 13 March, 2015, more than 2000 people were sheltering in evacuation centres. Disaster was on its way. That evening, **Cyclone Pam** struck Vanuatu, one of the largest island nations in the South Pacific, with extremely destructive force. Winds reaching 250km/h ripped off metal roofs from houses and schools. Communications and power went down. Agriculture and food stocks became debris.
+![Cyclone Pam Devastation](assets/cyclone_pam_disaster.jpeg){fig-alt="Cyclone Pam Aftermath" width="80%"}
 
-![Cyclone Pam Devastation](assets/cyclone_pam_disaster.jpeg){fig-alt="Aerial view of Cyclone Pam destruction in Vanuatu" width="80%"}
-
-The devastation across the archipelago was unprecedented, affecting approximately **188,000 people** (over half the population), with up to 90% of buildings in the capital, Port Vila, damaged or destroyed. Total estimated economic losses reached **\$449 million** (roughly 64% of Vanuatu's GDP).
-
-## Introduction: The Pacific's Unique Vulnerability
-
-By and large, the Pacific Region is one of the most vulnerable regions in the world. Constant friction between the Australian and Pacific tectonic plates trigger earthquakes and volcanic activity. Shifts in ocean currents and weather patterns such as **El Niño** generate cyclones and droughts. But all of this is old news to Pacific Islanders.
+By and large, the Pacific Region is one of the most vulnerable regions in the world. Perennial friction between the Australian and Pacific tectonic plates trigger earthquakes and volcanic activity; sometimes resulting in massive tsunamis. Shifts in ocean currents and weather patterns such as El Niño generate cyclones and droughts. For people living in this vast region, such natural disasters are nothing new.
 
 **What has changed?**
 
-## The New Era of Disasters
+Statistics from the Pacific Data Hub show that, during the last decade, disasters affecting large proportions of the population across **Melanesia** and **Micronesia** have become more frequent. Tuvalu and Tonga in Polynesia reflect this new pattern too. The arrival of Cyclone Pam in 2015 seemed to mark the beginning of a new era of more frequent and devastating disasters. This trend poses a growing challenge, as regional economies struggle to rebuild and recover .
 
-During the last decade, disasters affecting large proportions of the population across **Melanesia** and **Micronesia** have become more frequent. Tuvalu and Tonga in **Polynesia** seem to reflect this new pattern too. Based on comprehensive data analysis, it appears that the arrival of Cyclone Pam in 2015 marked the beginning of a new era of more frequent and devastating disasters.
+Only a year after Pam’s tragic appearance, **Winston** emerged. Back then, the fiercest tropical storm ever recorded in the Southern Hemisphere. Its trajectory was unusual; it followed a big counter-clockwise loop to the east of Fiji that amplified its strength, before striking Viti Levu, Fiji’s largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached 10% of GDP.
 
-Only a year after Pam's arrival, **Winston** paid a visit — one of the most intense tropical cyclones ever recorded in the Southern Hemisphere. After making an unusual loop down its path, it gained strength and directly hit Viti Levu, Fiji's largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached **10% of GDP**.
-
-### Figure 1: Pacific Disasters: A New Era
-
-The following visualization shows the increasing frequency and impact of disasters across Pacific Island nations since 2015:
-
-```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Pacific Disasters: A New Era - Since 2015, most Pacific countries have experienced at least one disaster affecting 25% or more of their population (highlighted).", fig.pos='H'}
-# Recreate Fig.1 from pacific_data_viz.R
+```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width", fig.width=10, fig.height=8}
+# Affected Persons by Disasters, Pacific Data Hub dataset
 p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
   geom_vline(
     xintercept = 2015,
@@ -129,13 +99,13 @@ p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
     color = "#0077BE",
     family = "ubuntu",
     fontface = "bold",
-    size = 3.5
+    size = rel(2)
   ) +
   scale_size(range = c(1, 15), labels = function(x) paste0(round(x / 1000, 1), "k")) +
   facet_wrap(~Region, ncol = 1, scales = "free_y") +
   labs(
     title = "Pacific Disasters: A New Era",
-    subtitle = "Since 2015, most Pacific countries have experienced at least one disaster\naffecting 25% or more of their population (highlighted).",
+    subtitle = "Since 2015, most Pacific countries have experienced at least one disaster affecting 25% or more of their population (highlighted).",
     caption = "Source: Pacific Data Hub",
     x = "",
     y = "",
@@ -145,21 +115,16 @@ p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
   common_theme +
   theme(
     legend.position = "bottom",
-    strip.text = element_text(family = "jost", size = rel(1.2), color = "gray50"),
-    strip.background = element_rect(fill = "snow2", color = "white", linewidth = 0.5)
+    strip.text = element_text(family = "jost", size = rel(4), color = "gray50"),
+    strip.background = element_rect(fill = "snow2", color = "white", linewidth = 0.5),
+    plot.margin = margin(0.8, 0.8, 0.8, 0, unit = "cm")
   )
 
 print(p1)
 ```
 
-## Economic Impact: Unprecedented Damage
-
-According to experts, **"exceptionally warm" ocean temperatures** above average, driven by El Niño and climate change, allowed Winston to intensify quickly and maintain its Category 5-level strength.
-
-### Figure 2: Unprecedented Economic Damage
-
-```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Unprecedented Economic Damage - The damage to food stocks and critical infrastructure has reached new heights.", fig.pos='H'}
-# Recreate Fig.2 from pacific_data_viz.R - Vanuatu plot
+```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.width=16, fig.height=10}
+# Economic Losses, Pacific Data Hub
 pcf_dis_economic_vu <- pcf_dis_economic %>% filter(Country == "Vanuatu")
 
 new_records_vu <- data.frame(
@@ -200,6 +165,7 @@ ec_p1 <- ggplot(pcf_dis_economic_vu, aes(x = Year, y = Economic_Loss)) +
     fontface = "bold",
     family = "roboto",
     color = "#0077BE",
+    size = 18
   ) +
   scale_x_continuous(breaks = unique(pcf_dis_economic_vu$Year), labels = as.integer) +
   scale_y_continuous(
@@ -209,7 +175,7 @@ ec_p1 <- ggplot(pcf_dis_economic_vu, aes(x = Year, y = Economic_Loss)) +
   facet_wrap(~Country, ncol = 1, scales = "free_y") +
   labs(
     title = "Unprecedented Economic Damage",
-    subtitle = "The damage to food stocks and critical infrastructure (schools, clinics, homes, power stations)\nhas reached new heights. In March 2015, Category 5 Cyclone Pam left Vanuatu's population\nvulnerable to food shortages. Just a year later, in February 2016, Cyclone Winston - one of the\nfiercest storms ever recorded, left a similar trail of destruction across Fiji, striking homes\nand vital tourism infrastructure.",
+    subtitle = "The damage to food stocks and critical infrastructure (schools, clinics, homes, power stations) has reached new heights. In March 2015, Category 5 Cyclone Pam left Vanuatu's population vulnerable to food shortages. Just a year later, in February 2016, Cyclone Winston - one of the fiercest storms ever recorded, left a similar trail of destruction across Fiji, striking homes and vital tourism infrastructure.",
     caption = "Source: Pacific Data Hub",
     x = "",
     y = "Economic Loss USD",
@@ -265,6 +231,7 @@ ec_p2 <- ggplot(pcf_dis_economic_fj, aes(x = Year, y = Economic_Loss)) +
     fontface = "bold",
     family = "roboto",
     color = "#0077BE",
+    size = 18
   ) +
   scale_x_continuous(breaks = unique(pcf_dis_economic_vu$Year), labels = as.integer) +
   scale_y_continuous(
@@ -289,19 +256,15 @@ ec_stacked_plot <- (ec_p1 / ec_p2) + plot_layout(heights = c(4, 4))
 print(ec_stacked_plot)
 ```
 
-## Climate Science: The Ocean Connection
+According to experts, “exceptionally warm” ocean temperatures above average, driven by El Niño and climate change, allowed Winston to intensify quickly and maintain its Category 5-level strength.
 
-People in the Pacific know **El Niño** all too well - a recurring climate pattern driven by shifts in the winds above the eastern Pacific that spreads heavy rains, droughts, heatwaves and wildfires; this powerful event alters the weather all around the world. The strength of any particular El Niño is measured by how much sea temperatures rise above average.
+People in the Pacific are familiar with El Niño - a recurring climate pattern driven by shifts in the winds above the eastern Pacific. It brings heavy rains, droughts and heatwaves; its broad effects ripple across the globe. The strength of any particular El Niño is measured by how much sea temperatures rise above average. The 2015-2016 edition was exceptional; nurturing strong tropical storms such as Winston. Over time, Pacific island countries have adapted to its impacts.
 
-The 2015-2016 edition was exceptional, nurturing strong tropical storms such as Winston. But again, nothing new here for Pacific Islanders.
+However, the data reveals another important milestone reached in 2015. For years, sea temperatures in the South Pacific have been rising steadily due to climate change and a warming planet. But in 2015, near the island of Kiribati, the first temperature anomaly \> 1°C was recorded. Since then, four more anomalies have hit that threshold.
 
-The data shows another important milestone for the South Pacific reached in 2015. For years, sea temperatures have been rising steadily from global warming; yet in 2015, **the first temperature anomaly \> 1°C was recorded near the island of Kiribati**. Ever since, there's been four more anomalies at that level. Perhaps a new era of warmer sea waters.
+Although climate change and El Niño are not associated with each other, they amplify each other’s effects. The upshot for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones like Pam and Winston; high-impact disasters that can upend the lives of so many people and bring unprecedented damage on the economies that sustain them.
 
-Although climate change and El Niño are not associated with each other, they feed into each other. The knock-on effect for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones such as Pam and Winston that can upend the lives of so many people and bring unprecedented damage to the economies that sustain them.
-
-### Figure 3: Hot Water
-
-```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Hot Water - Sea temperature anomalies in the South Pacific have followed an upward trend for two decades.", fig.pos='H'}
+```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H'}
 # Recreate Fig.3 from pacific_data_viz.R
 max_temp <- pcf_sea_anomalies %>% pull(Temp) %>% max(na.rm = TRUE)
 min_temp <- pcf_sea_anomalies %>% pull(Temp) %>% min(na.rm = TRUE)
@@ -321,26 +284,26 @@ ps1 <- ggplot(pcf_sea_anomalies, aes(x = Year, y = Temp)) +
     label = "1971–2000 climatological baseline",
     vjust = 1.5,
     hjust = 1.1,
-    family = "jost", color = "#0077BE", size = 4, fontface = "bold"
+    family = "jost", color = "#0077BE", size = 20, fontface = "bold"
   ) +
   annotate(
     geom = "text",
     x = 2015, y = 1.1, label = "Kiribati",
     hjust = -0.25, vjust = 1,
     fontface = "bold",
-    family = "roboto", color = "#FF6B6B"
+    family = "roboto", color = "#FF6B6B", size = 14
   ) +
   annotate(
     geom = "text",
     x = 2015, y = -1.1,
     label = "Each dot represents the average annual temperature anomaly in a Pacific Island Country.",
     hjust = 0.5,
-    family = "roboto", color = "gray40", size = 3.5, fontface = "italic"
+    family = "roboto", color = "gray40", size = 6, fontface = "italic"
   ) +
   scale_y_continuous(limits = c(-1.25, 1.25)) +
   labs(
     title = "Hot Water",
-    subtitle = "The heat, like the damage, keeps climbing. Sea temperature anomalies in the South Pacific\nhave followed an upward trend for two decades. The first anomaly > 1 °C was recorded\nin 2015 near the island of Kiribati.",
+    subtitle = "The heat, like the damage, keeps climbing. Sea temperature anomalies in the South Pacific have followed an upward trend for two decades. The first anomaly > 1 °C was recorded in 2015 near the island of Kiribati.",
     caption = "Source: Pacific Data Hub",
     x = "",
     y = "Sea temperature anomaly (°C)",
@@ -396,22 +359,10 @@ print(ps1)
 high_temp_table
 ```
 
-## Conclusion
-
-The message is clear: **climate change is the single greatest threat to the livelihoods, security and well-being of the peoples of the Pacific**.
-
-The analysis presented in this report demonstrates a clear pattern: since 2015, the Pacific region has entered a new era of more frequent and devastating disasters. The combination of rising sea surface temperatures, more intense cyclones, and increasing economic and human impacts paints a concerning picture for the future.
-
-### Key Questions for the Future
-
-- What are the lessons from Pam and Winston?
-- How can the Pacific South prepare for this new era?
-- What adaptation strategies can mitigate the growing risks?
-
-The data tells a compelling story of a region at the frontlines of climate change. Understanding these patterns and preparing appropriate responses will be crucial for the resilience and survival of Pacific Island nations in the decades to come.
+The message is clear: **climate change is the single greatest threat to the livelihoods, security and well-being of the peoples of the Pacific**. How can the Pacific South prepare for this new era?
 
 ------------------------------------------------------------------------
 
 *Report prepared for Pacific Data Viz Challenge 2026*\
-*Data analysis and visualizations: jortega*\
+*Data analysis and visualizations: Juan J. Ortiz*\
 *Source data: Pacific Data Hub, United Nations, World Bank*
