@@ -45,21 +45,22 @@ pcf_dis_economic <- readRDS("./data/pcf_dis_economic_clean.rds")
 pcf_sea_anomalies <- readRDS("./data/pcf_sea_temp_anomalies_clean.rds")
 
 # Common theme for all plots
-# Adjusted sizes
+# Optimized for web legibility and wider display
 common_theme <- theme_minimal(base_family = "jost") +
   theme(
-    plot.title = element_text(face = "bold", size = 40, color = "#FF6B6B"),
-    plot.subtitle = element_text(family = "roboto", size = 26, color = "gray40",
-                                lineheight = 1.2, margin = margin(t = 6, b = 20)),
-    plot.caption = element_text(color = "grey40", size = 20),
-    axis.title.x = element_text(hjust = 0, color = "gray40", size = 24),
-    axis.title.y = element_text(hjust = -0.5, vjust = 3, color = "gray40", size = 24),
-    axis.text.y = element_text(color = "gray40", size = 24),
-    axis.text.x = element_text(color = "gray40", size = 24),
-    legend.title = element_text(color = "gray40", size = 24, hjust = 0.5),
-    legend.text = element_text(color = "gray40", hjust = 0.5, margin = margin(t = 4), size = 22),
-    plot.tag = element_text(size = 24),
-    plot.margin = margin(1, 1, 1, 1, unit = "cm")
+    plot.title = element_text(face = "bold", size = 28, color = "#FF6B6B"),
+    plot.subtitle = element_text(family = "roboto", size = 18, color = "gray40",
+                                lineheight = 1.2, margin = margin(t = 6, b = 15)),
+    plot.caption = element_text(color = "grey40", size = 14),
+    axis.title.x = element_text(hjust = 0, color = "gray40", size = 16),
+    axis.title.y = element_text(hjust = -0.5, vjust = 3, color = "gray40", size = 16),
+    axis.text.y = element_text(color = "gray40", size = 14),
+    axis.text.x = element_text(color = "gray40", size = 14),
+    legend.title = element_text(color = "gray40", size = 14, hjust = 0.5),
+    legend.text = element_text(color = "gray40", hjust = 0.5, margin = margin(t = 4), size = 12),
+    plot.tag = element_text(size = 16),
+    plot.margin = margin(1.5, 1.5, 1.5, 1.5, unit = "cm"),
+    panel.background = element_rect(fill = "white", color = NA)
   )
 ```
 
@@ -77,7 +78,7 @@ Statistics from the Pacific Data Hub show that, during the last decade, disaster
 
 Only a year after Pam’s tragic appearance, **Winston** emerged. Back then, the fiercest tropical storm ever recorded in the Southern Hemisphere. Its trajectory was unusual; it followed a big counter-clockwise loop to the east of Fiji that amplified its strength, before striking Viti Levu, Fiji’s largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached 10% of GDP.
 
-```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width", fig.width=10, fig.height=8}
+```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width", fig.width=12, fig.height=9}
 # Affected Persons by Disasters, Pacific Data Hub dataset
 p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
   geom_vline(
@@ -123,7 +124,7 @@ p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
 print(p1)
 ```
 
-```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.width=16, fig.height=10}
+```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width", fig.width=14, fig.height=10}
 # Economic Losses, Pacific Data Hub
 pcf_dis_economic_vu <- pcf_dis_economic %>% filter(Country == "Vanuatu")
 
@@ -252,7 +253,7 @@ ec_p2 <- ggplot(pcf_dis_economic_fj, aes(x = Year, y = Economic_Loss)) +
   )
 
 # Stack plots vertically
-ec_stacked_plot <- (ec_p1 / ec_p2) + plot_layout(heights = c(4, 4))
+ec_stacked_plot <- (ec_p1 / ec_p2) + plot_layout(heights = c(4, 4), width = 1)
 print(ec_stacked_plot)
 ```
 
@@ -264,7 +265,7 @@ However, the data reveals another important milestone reached in 2015. For years
 
 Although climate change and El Niño are not associated with each other, they amplify each other’s effects. The upshot for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones like Pam and Winston; high-impact disasters that can upend the lives of so many people and bring unprecedented damage on the economies that sustain them.
 
-```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H'}
+```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width", fig.width=12, fig.height=8}
 # Recreate Fig.3 from pacific_data_viz.R
 max_temp <- pcf_sea_anomalies %>% pull(Temp) %>% max(na.rm = TRUE)
 min_temp <- pcf_sea_anomalies %>% pull(Temp) %>% min(na.rm = TRUE)
