@@ -5,6 +5,18 @@ format:
   html:
     toc: false
     css: styles.css
+    include-in-header:
+      - text: |
+          <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Jost:wght@400;700&display=swap" rel="stylesheet">
+    theme: none  # Disable default theme to avoid conflicts with custom CSS
+    embed-resources: true  # Self-contained HTML
+    fig-format: retina  # High-resolution figures
+    fig-dpi: 300  # Sharper images
+    reference-location: margin  # Subtle citations
+    link-external-newwindow: true  # Open external links in new tabs
+    link-external-icon: true  # Visual cue for external links
+    smooth-scroll: true  # Smooth anchor navigation
+    lang: en  # Language support
 ---
 
 ```{r setup, include=FALSE}
@@ -48,17 +60,17 @@ pcf_sea_anomalies <- readRDS("./data/pcf_sea_temp_anomalies_clean.rds")
 # Optimized for web legibility and wider display
 common_theme <- theme_minimal(base_family = "jost") +
   theme(
-    plot.title = element_text(face = "bold", size = 28, color = "#FF6B6B"),
-    plot.subtitle = element_text(family = "roboto", size = 18, color = "gray40",
+    plot.title = element_text(face = "bold", size = rel(2.5), color = "#FF6B6B"),
+    plot.subtitle = element_text(family = "roboto", size = rel(1.6), color = "gray40",
                                 lineheight = 1.2, margin = margin(t = 6, b = 15)),
-    plot.caption = element_text(color = "grey40", size = 14),
-    axis.title.x = element_text(hjust = 0, color = "gray40", size = 16),
-    axis.title.y = element_text(hjust = -0.5, vjust = 3, color = "gray40", size = 16),
-    axis.text.y = element_text(color = "gray40", size = 14),
-    axis.text.x = element_text(color = "gray40", size = 14),
-    legend.title = element_text(color = "gray40", size = 14, hjust = 0.5),
-    legend.text = element_text(color = "gray40", hjust = 0.5, margin = margin(t = 4), size = 12),
-    plot.tag = element_text(size = 16),
+    plot.caption = element_text(color = "grey40", size = rel(1.2)),
+    axis.title.x = element_text(hjust = 0, color = "gray40", size = rel(1.4)),
+    axis.title.y = element_text(hjust = -0.5, vjust = 3, color = "gray40", size = rel(1.4)),
+    axis.text.y = element_text(color = "gray40", size = rel(1.2)),
+    axis.text.x = element_text(color = "gray40", size = rel(1.2)),
+    legend.title = element_text(color = "gray40", size = rel(1.2), hjust = 0.5),
+    legend.text = element_text(color = "gray40", hjust = 0.5, margin = margin(t = 4), size = rel(1.0)),
+    plot.tag = element_text(size = rel(1.4)),
     plot.margin = margin(1.5, 1.5, 1.5, 1.5, unit = "cm"),
     panel.background = element_rect(fill = "white", color = NA)
   )
@@ -78,7 +90,7 @@ Statistics from the Pacific Data Hub show that, during the last decade, disaster
 
 Only a year after Pam’s tragic appearance, **Winston** emerged. Back then, the fiercest tropical storm ever recorded in the Southern Hemisphere. Its trajectory was unusual; it followed a big counter-clockwise loop to the east of Fiji that amplified its strength, before striking Viti Levu, Fiji’s largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached 10% of GDP.
 
-```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width", fig.width=12, fig.height=9}
+```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width"}
 # Affected Persons by Disasters, Pacific Data Hub dataset
 p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
   geom_vline(
@@ -100,7 +112,7 @@ p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
     color = "#0077BE",
     family = "ubuntu",
     fontface = "bold",
-    size = rel(2)
+    size = rel(6)
   ) +
   scale_size(range = c(1, 15), labels = function(x) paste0(round(x / 1000, 1), "k")) +
   facet_wrap(~Region, ncol = 1, scales = "free_y") +
@@ -124,7 +136,7 @@ p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
 print(p1)
 ```
 
-```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width", fig.width=14, fig.height=10}
+```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width"}
 # Economic Losses, Pacific Data Hub
 pcf_dis_economic_vu <- pcf_dis_economic %>% filter(Country == "Vanuatu")
 
@@ -265,7 +277,7 @@ However, the data reveals another important milestone reached in 2015. For years
 
 Although climate change and El Niño are not associated with each other, they amplify each other’s effects. The upshot for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones like Pam and Winston; high-impact disasters that can upend the lives of so many people and bring unprecedented damage on the economies that sustain them.
 
-```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width", fig.width=12, fig.height=8}
+```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width"}
 # Recreate Fig.3 from pacific_data_viz.R
 max_temp <- pcf_sea_anomalies %>% pull(Temp) %>% max(na.rm = TRUE)
 min_temp <- pcf_sea_anomalies %>% pull(Temp) %>% min(na.rm = TRUE)

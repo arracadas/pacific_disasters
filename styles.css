@@ -3,7 +3,7 @@
   --primary-color: #0077BE;
   --secondary-color: #4ECDC4;
   --accent-color: #FF6B6B;
-  --text-color: #333333;
+  --text-color: #232323;
   --light-text: #666666;
   --background-color: #fafafa;
   --header-bg: #ffffff;
@@ -12,53 +12,62 @@
 
 /* Global body styles */
 body {
-  font-family: 'Jost', 'Montserrat', sans-serif;
+  font-family: 'Lora', 'Georgia', 'Times New Roman', serif;
   line-height: 1.7;
   color: var(--text-color);
   background-color: var(--background-color);
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  font-size: 1.1rem;
 }
+
+/* Heading styles */
+h1, h2, h3 {
+  font-family: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+}
+
+h1 { font-size: 2.2rem; margin: 1.5em 0 1em; }
+h2 { font-size: 1.8rem; margin: 1.2em 0 0.8em; }
+h3 { font-size: 1.4rem; margin: 1em 0 0.5em; }
 
 /* Full-width container for charts */
 .full-width {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
   padding: 0 !important;
   box-sizing: border-box !important;
-  overflow-x: hidden !important;
+  overflow: visible !important;
 }
 
 /* Ensure Quarto figures respect full-width */
 .full-width figure {
-  width: 100% !important;
   max-width: 100% !important;
-  margin: 0 !important;
+  margin: 0 auto !important;
 }
 
 /* Make figure images responsive */
 .full-width img {
-  width: 100% !important;
-  height: auto !important;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/10; /* Adjust as needed */
   display: block !important;
 }
 
 /* Chart containers */
 .quarto-figure {
-  width: 100% !important;
   max-width: 100% !important;
-  margin: 2em 0 !important;
+  margin: 2em auto !important;
+  padding: 1em;
+  font-size: 1.1em; /* Scale text */
 }
 
-/* Prevent horizontal overflow for other elements */
+/* Container for non-chart elements */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  overflow-x: hidden;
 }
 
 /* Responsive adjustments */
@@ -66,10 +75,20 @@ body {
   body {
     padding: 1rem;
   }
-  
+
   .full-width {
-    margin-left: -1rem !important;
-    margin-right: -1rem !important;
-    width: calc(100% + 2rem) !important;
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  .quarto-figure {
+    font-size: 0.9em; /* Improve mobile legibility */
+  }
+
+  /* Optional: Adjust aspect ratio for mobile */
+  .full-width img {
+    aspect-ratio: 1/1;
   }
 }
