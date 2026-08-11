@@ -286,7 +286,7 @@ However, the data reveals another important milestone reached in 2015. For years
 
 Although climate change and El Niño are not associated with each other, they amplify each other’s effects. The upshot for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones like Pam and Winston; high-impact disasters that can upend the lives of so many people and bring unprecedented damage on the economies that sustain them.
 
-```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width"}
+```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.height=6}
 # Recreate Fig.3 from pacific_data_viz.R
 max_temp <- pcf_sea_anomalies %>% pull(Temp) %>% max(na.rm = TRUE)
 min_temp <- pcf_sea_anomalies %>% pull(Temp) %>% min(na.rm = TRUE)
@@ -334,7 +334,6 @@ ps1 <- ggplot(pcf_sea_anomalies, aes(x = Year, y = Temp)) +
   common_theme +
   theme(
     axis.title.y = element_text(hjust = 0.5),
-    plot.margin = margin(0.8, 0.8, 0, 0.8, unit = "cm")
   )
 
 # Format the table using gt()
@@ -349,7 +348,7 @@ high_temp_table <- gt(countries_high_temp) %>%
   tab_style(
     style = cell_text(
       font = "jost",
-      size = px(12),
+      size = 14,
       color = "gray58",
       weight = "bold"
     ),
@@ -367,7 +366,7 @@ high_temp_table <- gt(countries_high_temp) %>%
   tab_style(
     style = cell_text(
       font = "jost",
-      size = px(16),
+      size = 14,
       color = "#FF6B6B",
       weight = "bold"
     ),
@@ -375,10 +374,7 @@ high_temp_table <- gt(countries_high_temp) %>%
   )
 
 # Print the plot
-print(ps1)
-
-# Print the table separately
-print(high_temp_table)
+print(ps1/wrap_table(high_temp_table, space = "free_x"))
 ```
 
 The message is clear: **climate change is the single greatest threat to the livelihoods, security and well-being of the peoples of the Pacific**. How can the Pacific South prepare for this new era?
