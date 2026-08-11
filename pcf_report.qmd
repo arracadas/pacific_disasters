@@ -60,19 +60,24 @@ pcf_sea_anomalies <- readRDS("./data/pcf_sea_temp_anomalies_clean.rds")
 # Optimized for web legibility and wider display
 common_theme <- theme_minimal(base_family = "jost") +
   theme(
-    plot.title = element_text(face = "bold", size = rel(2.5), color = "#FF6B6B"),
-    plot.subtitle = element_text(family = "roboto", size = rel(1.6), color = "gray40",
-                                lineheight = 1.2, margin = margin(t = 6, b = 15)),
-    plot.caption = element_text(color = "grey40", size = rel(1.2)),
-    axis.title.x = element_text(hjust = 0, color = "gray40", size = rel(1.4)),
-    axis.title.y = element_text(hjust = -0.5, vjust = 3, color = "gray40", size = rel(1.4)),
-    axis.text.y = element_text(color = "gray40", size = rel(1.2)),
-    axis.text.x = element_text(color = "gray40", size = rel(1.2)),
-    legend.title = element_text(color = "gray40", size = rel(1.2), hjust = 0.5),
-    legend.text = element_text(color = "gray40", hjust = 0.5, margin = margin(t = 4), size = rel(1.0)),
-    plot.tag = element_text(size = rel(1.4)),
-    plot.margin = margin(1.5, 1.5, 1.5, 1.5, unit = "cm"),
-    panel.background = element_rect(fill = "white", color = NA)
+    plot.title = element_text(face = "bold", size = rel(7), color = "#FF6B6B"),
+    plot.subtitle = element_text(
+      family = "roboto",
+      size = rel(5),
+      color = "gray40",
+      lineheight = 0.2,  # Reduce line height for tighter spacing
+      margin = margin(t = 4, b = 8)  # Reduce top and bottom margins
+    ),
+    plot.caption = element_text(color = "grey40", size = rel(4)),
+    axis.title.x = element_text(hjust = 0, color = "gray40", size = rel(5)),
+    axis.title.y = element_text(hjust = -0.5, vjust = 3, color = "gray40", size = rel(5)),
+    axis.text.y = element_text(color = "gray40", size = rel(5)),
+    axis.text.x = element_text(color = "gray40", size = rel(5)),
+    legend.title = element_text(color = "gray40", size = rel(5), hjust = 0.5),
+    legend.text = element_text(color = "gray40", hjust = 0.5, margin = margin(t = 4), size = rel(5)),
+    plot.tag = element_text(size = rel(4), color = "gray40", face = "plain"),
+    plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = "cm"),
+    panel.background = element_rect(fill = "snow", color = NA)
   )
 ```
 
@@ -80,7 +85,7 @@ On March 13th 2015, an ominous sensation swept over the shores of Port Vila. Hot
 
 That evening, just before midnight, **Pam**, a category five cyclone, struck Vanuatu’s capital with extremely destructive force. Winds reaching 250kmph ripped off metal roofs from houses and schools; communications and power infrastructure were destroyed or heavily damaged; crops were wiped out and food stocks blown into debris. The devastation was unprecedented, affecting 188,000 people (over half the population), with up to 90% of buildings damaged or destroyed. Total estimated economic losses reached \$449 million (roughly 64% of Vanuatu’s GDP).
 
-![Cyclone Pam Devastation](assets/cyclone_pam_disaster.jpeg){fig-alt="Cyclone Pam Aftermath" width="80%"}
+![Cyclone Pam Aftermath](assets/cyclone_pam_disaster.jpeg){fig-alt="Cyclone Pam Aftermath" width="60%"}
 
 By and large, the Pacific Region is one of the most vulnerable regions in the world. Perennial friction between the Australian and Pacific tectonic plates trigger earthquakes and volcanic activity; sometimes resulting in massive tsunamis. Shifts in ocean currents and weather patterns such as El Niño generate cyclones and droughts. For people living in this vast region, such natural disasters are nothing new.
 
@@ -88,9 +93,9 @@ By and large, the Pacific Region is one of the most vulnerable regions in the wo
 
 Statistics from the Pacific Data Hub show that, during the last decade, disasters affecting large proportions of the population across **Melanesia** and **Micronesia** have become more frequent. Tuvalu and Tonga in Polynesia reflect this new pattern too. The arrival of Cyclone Pam in 2015 seemed to mark the beginning of a new era of more frequent and devastating disasters. This trend poses a growing challenge, as regional economies struggle to rebuild and recover .
 
-Only a year after Pam’s tragic appearance, **Winston** emerged. Back then, the fiercest tropical storm ever recorded in the Southern Hemisphere. Its trajectory was unusual; it followed a big counter-clockwise loop to the east of Fiji that amplified its strength, before striking Viti Levu, Fiji’s largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached 10% of GDP.
+Only a year after Pam’s tragic appearance, **Winston** emerged. Back then, the fiercest tropical storm ever recorded in the Southern Hemisphere. Its trajectory was unusual; it followed a big counter-clockwise loop to the east of Fiji, that amplified its strength before striking Viti Levu, Fiji’s largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached 10% of GDP.
 
-```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width"}
+```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.height=6}
 # Affected Persons by Disasters, Pacific Data Hub dataset
 p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
   geom_vline(
@@ -110,33 +115,37 @@ p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
     data = filter(pcf_dis_affected, Affected_Pop_Perc > 0.24),
     aes(label = paste0(round(Affected_Persons / 1000, 0), "k")),
     color = "#0077BE",
-    family = "ubuntu",
+    family = "jost",
     fontface = "bold",
-    size = rel(6)
+    size = 14,
   ) +
-  scale_size(range = c(1, 15), labels = function(x) paste0(round(x / 1000, 1), "k")) +
+  # Size scale
+  scale_size(range = c(rel(2), rel(10)), labels = function(x) paste0(round(x / 1000, 1), "k")) +
+  # Facets
   facet_wrap(~Region, ncol = 1, scales = "free_y") +
   labs(
     title = "Pacific Disasters: A New Era",
-    subtitle = "Since 2015, most Pacific countries have experienced at least one disaster affecting 25% or more of their population (highlighted).",
+    subtitle = "Since 2015, most Pacific countries have experienced at least one disaster affecting\n25% or more of their population (highlighted).",
     caption = "Source: Pacific Data Hub",
     x = "",
     y = "",
     tag = "Fig.1",
     size = "Affected Persons"
   ) +
+  # Theme
   common_theme +
   theme(
     legend.position = "bottom",
-    strip.text = element_text(family = "jost", size = rel(4), color = "gray50"),
-    strip.background = element_rect(fill = "snow2", color = "white", linewidth = 0.5),
-    plot.margin = margin(0.8, 0.8, 0.8, 0, unit = "cm")
+    strip.text = element_text(family = "jost", size = rel(5.5), 
+                              color = "gray50"),
+    strip.background = element_rect(fill = "snow2", color = "white",
+                                    linewidth = 0.5),
   )
 
 print(p1)
 ```
 
-```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width"}
+```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.height=5.5}
 # Economic Losses, Pacific Data Hub
 pcf_dis_economic_vu <- pcf_dis_economic %>% filter(Country == "Vanuatu")
 
@@ -173,10 +182,10 @@ ec_p1 <- ggplot(pcf_dis_economic_vu, aes(x = Year, y = Economic_Loss)) +
     geom = "text",
     x = 2015,
     y = 460000000,
-    label = "Cyclone Pam:\nEconomic losses reached\n  ~$450m (64% of GDP)",
-    hjust = -0.15, vjust = 1,
+    label = "Cyclone Pam: ~$450m (64% of GDP) in economic losses",
+    hjust = 0.15, vjust = -0.7,
     fontface = "bold",
-    family = "roboto",
+    family = "jost",
     color = "#0077BE",
     size = 18
   ) +
@@ -188,19 +197,18 @@ ec_p1 <- ggplot(pcf_dis_economic_vu, aes(x = Year, y = Economic_Loss)) +
   facet_wrap(~Country, ncol = 1, scales = "free_y") +
   labs(
     title = "Unprecedented Economic Damage",
-    subtitle = "The damage to food stocks and critical infrastructure (schools, clinics, homes, power stations) has reached new heights. In March 2015, Category 5 Cyclone Pam left Vanuatu's population vulnerable to food shortages. Just a year later, in February 2016, Cyclone Winston - one of the fiercest storms ever recorded, left a similar trail of destruction across Fiji, striking homes and vital tourism infrastructure.",
-    caption = "Source: Pacific Data Hub",
+    subtitle = "The damage to food stocks and critical infrastructure (schools, clinics, homes, power stations)\nhas reached new heights. In March 2015, Category 5 Cyclone Pam left Vanuatu's population vulnerable\nto food shortages. Just a year later, in February 2016, Cyclone Winston left a similar trail\nof destruction across Fiji, striking homes and vital tourism infrastructure.",
     x = "",
     y = "Economic Loss USD",
     tag = "Fig. 2"
   ) +
   common_theme +
   theme(
-    strip.text = element_text(family = "jost", size = rel(1.2), color = "gray50"),
-    strip.background = element_rect(fill = "snow2", color = "white", linewidth = 0.5),
+    strip.text = element_text(family = "jost", size = rel(5.5), color = "gray50"),
+    strip.background = element_rect(fill = "snow2", color = "white",
+                                    linewidth = 0.5),
     axis.text.x = element_blank(),
     panel.grid.minor = element_blank(),
-    plot.margin = margin(0.8, 0.8, 0, 0.8, unit = "cm")
   )
 
 # Fiji plot
@@ -239,10 +247,10 @@ ec_p2 <- ggplot(pcf_dis_economic_fj, aes(x = Year, y = Economic_Loss)) +
     geom = "text",
     x = 2016,
     y = 400000000,
-    label = "Cyclone Winston:\nEconomic losses reached\n  ~$400m (10% of GDP)",
-    hjust = -0.15, vjust = 1,
+    label = "Cyclone Winston:~$400m (10% of GDP) in economic losses",
+    hjust = 0.15, vjust = -0.5,
     fontface = "bold",
-    family = "roboto",
+    family = "jost",
     color = "#0077BE",
     size = 18
   ) +
@@ -254,12 +262,13 @@ ec_p2 <- ggplot(pcf_dis_economic_fj, aes(x = Year, y = Economic_Loss)) +
   facet_wrap(~Country, ncol = 1, scales = "free_y") +
   labs(
     x = "",
-    y = ""
+    y = "",
+    caption = "Source: Pacific Data Hub",
   ) +
   theme_minimal() +
   common_theme +
   theme(
-    strip.text = element_text(family = "jost", size = rel(1.2), color = "gray50"),
+    strip.text = element_text(family = "jost", size = rel(5.5), color = "gray50"),
     strip.background = element_rect(fill = "snow2", color = "white", linewidth = 0.5),
     panel.grid.minor = element_blank()
   )
@@ -304,19 +313,19 @@ ps1 <- ggplot(pcf_sea_anomalies, aes(x = Year, y = Temp)) +
     x = 2015, y = 1.1, label = "Kiribati",
     hjust = -0.25, vjust = 1,
     fontface = "bold",
-    family = "roboto", color = "#FF6B6B", size = 14
+    family = "jost", color = "#FF6B6B", size = 20
   ) +
   annotate(
     geom = "text",
     x = 2015, y = -1.1,
     label = "Each dot represents the average annual temperature anomaly in a Pacific Island Country.",
     hjust = 0.5,
-    family = "roboto", color = "gray40", size = 6, fontface = "italic"
+    family = "jost", color = "gray40", size = 16, fontface = "italic"
   ) +
   scale_y_continuous(limits = c(-1.25, 1.25)) +
   labs(
     title = "Hot Water",
-    subtitle = "The heat, like the damage, keeps climbing. Sea temperature anomalies in the South Pacific have followed an upward trend for two decades. The first anomaly > 1 °C was recorded in 2015 near the island of Kiribati.",
+    subtitle = "The heat, like the damage, keeps climbing. Sea temperature anomalies in the South Pacific have followed\nan upward trend for two decades. The first anomaly > 1 °C was recorded in 2015 near the island of Kiribati.",
     caption = "Source: Pacific Data Hub",
     x = "",
     y = "Sea temperature anomaly (°C)",
@@ -369,7 +378,7 @@ high_temp_table <- gt(countries_high_temp) %>%
 print(ps1)
 
 # Print the table separately
-high_temp_table
+print(high_temp_table)
 ```
 
 The message is clear: **climate change is the single greatest threat to the livelihoods, security and well-being of the peoples of the Pacific**. How can the Pacific South prepare for this new era?
@@ -379,3 +388,4 @@ The message is clear: **climate change is the single greatest threat to the live
 *Report prepared for Pacific Data Viz Challenge 2026*\
 *Data analysis and visualizations: Juan J. Ortiz*\
 *Source data: Pacific Data Hub, United Nations, World Bank*
+*Other Source:*

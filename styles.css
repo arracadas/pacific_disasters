@@ -16,10 +16,10 @@ body {
   line-height: 1.7;
   color: var(--text-color);
   background-color: var(--background-color);
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 /* Heading styles */
@@ -43,24 +43,33 @@ h3 { font-size: 1.4rem; margin: 1em 0 0.5em; }
 
 /* Ensure Quarto figures respect full-width */
 .full-width figure {
-  max-width: 100% !important;
-  margin: 0 auto !important;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 /* Make figure images responsive */
 .full-width img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16/10; /* Adjust as needed */
   display: block !important;
 }
 
-/* Chart containers */
+/* Center the figure and its caption */
 .quarto-figure {
-  max-width: 100% !important;
-  margin: 2em auto !important;
-  padding: 1em;
-  font-size: 1.1em; /* Scale text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  margin: 2em auto;
+  padding: 0.5em;
+}
+
+/* Style the caption */
+.quarto-figure figcaption {
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 0.5em;
 }
 
 /* Container for non-chart elements */
@@ -84,11 +93,11 @@ h3 { font-size: 1.4rem; margin: 1em 0 0.5em; }
   }
 
   .quarto-figure {
-    font-size: 0.9em; /* Improve mobile legibility */
+    font-size: 1em;
+    padding: 0.5em;
   }
 
-  /* Optional: Adjust aspect ratio for mobile */
-  .full-width img {
-    aspect-ratio: 1/1;
+  .quarto-figure figcaption {
+    font-size: 0.8em;
   }
 }
