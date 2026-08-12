@@ -57,6 +57,14 @@ h3 { font-size: 1.4rem; margin: 1em 0 0.5em; }
   margin: 0 auto;
 }
 
+/* References section styling */
+#references {
+  font-size: 0.8em; /* Smaller font size for references */
+  line-height: 0.8; /* Adjust line height for readability */
+  color: var(--light-text); /* Optional: Use a lighter text color */
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   body {
