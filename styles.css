@@ -5,7 +5,7 @@
   --accent-color: #FF6B6B;
   --text-color: #232323;
   --light-text: #666666;
-  --background-color: #fafafa;
+  --background-color: #F8F8FF;
   --header-bg: #ffffff;
   --border-color: #e0e0e0;
 }
@@ -16,7 +16,7 @@ body {
   line-height: 1.7;
   color: var(--text-color);
   background-color: var(--background-color);
-  max-width: 800px;
+  max-width: 840px;
   margin: 0 auto;
   padding: 2rem;
   font-size: 1rem;
@@ -32,28 +32,6 @@ h1 { font-size: 2.2rem; margin: 1.5em 0 1em; }
 h2 { font-size: 1.8rem; margin: 1.2em 0 0.8em; }
 h3 { font-size: 1.4rem; margin: 1em 0 0.5em; }
 
-/* Full-width container for charts */
-.full-width {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-  overflow: visible !important;
-}
-
-/* Ensure Quarto figures respect full-width */
-.full-width figure {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-/* Make figure images responsive */
-.full-width img {
-  width: 100%;
-  height: auto;
-  display: block !important;
-}
-
 /* Center the figure and its caption */
 .quarto-figure {
   display: flex;
@@ -61,7 +39,7 @@ h3 { font-size: 1.4rem; margin: 1em 0 0.5em; }
   align-items: center;
   max-width: 100%;
   margin: 2em auto;
-  padding: 0.5em;
+  padding: 0em;
 }
 
 /* Style the caption */

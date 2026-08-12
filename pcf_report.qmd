@@ -81,7 +81,7 @@ common_theme <- theme_minimal(base_family = "jost") +
   )
 ```
 
-On March 13th 2015, an ominous sensation swept over the shores of Port Vila. Hotels, schools and roads were deserted. More than 2000 people were sheltering in evacuation centres. Disaster was on the horizon.
+On March 13th 2015, an ominous sensation swept over the shores of Port Vila. Hotels, schools and roads were deserted. More than 2000 people were sheltering in evacuation centres. Disaster was looming on the horizon.
 
 That evening, just before midnight, **Pam**, a category five cyclone, struck Vanuatu’s capital with extremely destructive force. Winds reaching 250kmph ripped off metal roofs from houses and schools; communications and power infrastructure were destroyed or heavily damaged; crops were wiped out and food stocks blown into debris. The devastation was unprecedented, affecting 188,000 people (over half the population), with up to 90% of buildings damaged or destroyed. Total estimated economic losses reached \$449 million (roughly 64% of Vanuatu’s GDP).
 
@@ -117,7 +117,7 @@ p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
     color = "#0077BE",
     family = "jost",
     fontface = "bold",
-    size = 14,
+    size = 16,
   ) +
   # Size scale
   scale_size(range = c(rel(2), rel(10)), labels = function(x) paste0(round(x / 1000, 1), "k")) +
@@ -286,7 +286,7 @@ However, the data reveals another important milestone reached in 2015. For years
 
 Although climate change and El Niño are not associated with each other, they amplify each other’s effects. The upshot for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones like Pam and Winston; high-impact disasters that can upend the lives of so many people and bring unprecedented damage on the economies that sustain them.
 
-```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', class.source="full-width"}
+```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H'}
 # Recreate Fig.3 from pacific_data_viz.R
 max_temp <- pcf_sea_anomalies %>% pull(Temp) %>% max(na.rm = TRUE)
 min_temp <- pcf_sea_anomalies %>% pull(Temp) %>% min(na.rm = TRUE)
@@ -334,51 +334,10 @@ ps1 <- ggplot(pcf_sea_anomalies, aes(x = Year, y = Temp)) +
   common_theme +
   theme(
     axis.title.y = element_text(hjust = 0.5),
-    plot.margin = margin(0.8, 0.8, 0, 0.8, unit = "cm")
-  )
-
-# Format the table using gt()
-high_temp_table <- gt(countries_high_temp) %>%
-  cols_align(align = "center") %>%
-  cols_width(
-    Year ~ px(80),
-    Country ~ px(150),
-    Temp ~ px(80)
-  ) %>%
-  tab_header(title = "Temp. Anomalies > 1°C") %>%
-  tab_style(
-    style = cell_text(
-      font = "jost",
-      size = px(12),
-      color = "gray58",
-      weight = "bold"
-    ),
-    locations = cells_body()
-  ) %>%
-  tab_style(
-    style = cell_text(
-      font = "jost",
-      size = px(14),
-      color = "gray58",
-      weight = "bold"
-    ),
-    locations = cells_column_labels()
-  ) %>%
-  tab_style(
-    style = cell_text(
-      font = "jost",
-      size = px(16),
-      color = "#FF6B6B",
-      weight = "bold"
-    ),
-    locations = cells_title()
   )
 
 # Print the plot
 print(ps1)
-
-# Print the table separately
-print(high_temp_table)
 ```
 
 The message is clear: **climate change is the single greatest threat to the livelihoods, security and well-being of the peoples of the Pacific**. How can the Pacific South prepare for this new era?
