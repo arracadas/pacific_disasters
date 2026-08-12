@@ -5,7 +5,7 @@
   --accent-color: #FF6B6B;
   --text-color: #232323;
   --light-text: #666666;
-  --background-color: #F5F5F5;
+  --background-color: #F8F8FF;
   --header-bg: #ffffff;
   --border-color: #e0e0e0;
 }
@@ -16,7 +16,7 @@ body {
   line-height: 1.7;
   color: var(--text-color);
   background-color: var(--background-color);
-  max-width: 880px;
+  max-width: 840px;
   margin: 0 auto;
   padding: 2rem;
   font-size: 1rem;
