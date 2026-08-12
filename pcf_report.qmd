@@ -93,7 +93,7 @@ By and large, the Pacific Region is one of the most vulnerable regions in the wo
 
 Statistics from the Pacific Data Hub show that, during the last decade, disasters affecting large proportions of the population across **Melanesia** and **Micronesia** have become more frequent. Tuvalu and Tonga in Polynesia reflect this new pattern too. The arrival of Cyclone Pam in 2015 seemed to mark the beginning of a new era of more frequent and devastating disasters. This trend poses a growing challenge, as regional economies struggle to rebuild and recover .
 
-Only a year after Pam’s tragic appearance, **Winston** emerged. Back then, the fiercest tropical storm ever recorded in the Southern Hemisphere. Its trajectory was unusual; it followed a big counter-clockwise loop to the east of Fiji, that amplified its strength before striking Viti Levu, Fiji’s largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached 10% of GDP.
+Only a year after Pam’s tragic appearance, **Winston** emerged. Back then, the fiercest tropical storm ever recorded in the Southern Hemisphere. Its trajectory was unusual; it followed a big counter-clockwise loop to the east of Fiji, accumulating strength before striking Viti Levu, Fiji’s largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached 10% of GDP.
 
 ```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.height=6}
 # Affected Persons by Disasters, Pacific Data Hub dataset
@@ -197,7 +197,7 @@ ec_p1 <- ggplot(pcf_dis_economic_vu, aes(x = Year, y = Economic_Loss)) +
   facet_wrap(~Country, ncol = 1, scales = "free_y") +
   labs(
     title = "Unprecedented Economic Damage",
-    subtitle = "The damage to food stocks and critical infrastructure (schools, clinics, homes, power stations)\nhas reached new heights. In March 2015, Category 5 Cyclone Pam left Vanuatu's population vulnerable\nto food shortages. Just a year later, in February 2016, Cyclone Winston left a similar trail\nof destruction across Fiji, striking homes and vital tourism infrastructure.",
+    subtitle = "The damage to food stocks and critical infrastructure (schools, clinics, homes, power stations)\nhas reached new heights. In March 2015, Category 5 Cyclone Pam left Vanuatu's population vulnerable\nto food shortages. A year later, Cyclone Winston decimated homes and vital tourism infrastructure in Fiji.",
     x = "",
     y = "Economic Loss USD",
     tag = "Fig. 2"
@@ -263,7 +263,7 @@ ec_p2 <- ggplot(pcf_dis_economic_fj, aes(x = Year, y = Economic_Loss)) +
   labs(
     x = "",
     y = "",
-    caption = "Source: Pacific Data Hub",
+    caption = "Source: Pacific Data Hub, UN Population Statistics",
   ) +
   theme_minimal() +
   common_theme +
@@ -280,7 +280,7 @@ print(ec_stacked_plot)
 
 According to experts, “exceptionally warm” ocean temperatures above average, driven by El Niño and climate change, allowed Winston to intensify quickly and maintain its Category 5-level strength.
 
-People in the Pacific are familiar with El Niño - a recurring climate pattern driven by shifts in the winds above the eastern Pacific. It brings heavy rains, droughts and heatwaves; its broad effects ripple across the globe. The strength of any particular El Niño is measured by how much sea temperatures rise above average. The 2015-2016 edition was exceptional; nurturing strong tropical storms such as Winston. Over time, Pacific island countries have adapted to its impacts.
+People in the Pacific are familiar with El Niño - a recurring climate pattern driven by shifts in the winds above the eastern Pacific. It delivers heavy rains in some places, droughts and heatwaves in others. Those weather effects ripple across the globe. The strength of any particular El Niño is measured by how much sea temperatures rise above average. The 2015-2016 edition was exceptional; nurturing strong tropical storms such as Winston. Over time, Pacific island countries have adapted to its impacts.
 
 However, the data reveals another important milestone reached in 2015. For years, sea temperatures in the South Pacific have been rising steadily due to climate change and a warming planet. But in 2015, near the island of Kiribati, the first temperature anomaly \> 1°C was recorded. Since then, four more anomalies have hit that threshold.
 
@@ -342,9 +342,33 @@ print(ps1)
 
 The message is clear: **climate change is the single greatest threat to the livelihoods, security and well-being of the peoples of the Pacific**. How can the Pacific South prepare for this new era?
 
-------------------------------------------------------------------------
+---
+<div id="references">
+*Pacific Data Viz Challenge 2026*
 
-*Report prepared for Pacific Data Viz Challenge 2026*\
-*Data analysis and visualizations: Juan J. Ortiz*\
-*Source data: Pacific Data Hub, United Nations, World Bank*
-*Other Source:*
+*Source Data:*
+
+*Pacific Data Hub*
+
+  *- Number of directly affected persons attributed to disasters*
+
+  *- Direct disaster economic loss, average annual loss*
+
+  *- Climate Change Indicators: Sea Surface Temperature anomalies, Celsius*
+
+*United Nations Population Statistics*
+
+*References:*
+
+- Asian Development Bank. 01 May 2019. [*The Pacific Islands: Building Resilience to Natural Disasters*.](https://www.adb.org/results/pacific-islands-building-resilience-natural-disasters). 
+
+- Humanitarian Action. November 2022, [*Pacific Islands.*](https://humanitarianaction.info/article/pacific-islands)
+
+- Australia Government, Department of Foreign Affairs and Trade Crisis Hub. [*Tropical Cyclone Harold.*](https://www.dfat.gov.au/crisis-hub/tropical-cyclone-harold).
+
+- The Guardian. 09 Apr 2020. [*It’s All Gone: Cyclone Harold cuts a deadly path through Vanuatu*.](https://www.theguardian.com/world/2020/apr/10/its-all-gone-cyclone-harold-cuts-a-deadly-path-through-vanuatu).
+
+- Climate Signals. [*Tropical Cyclone Winston*.](https://www.climatesignals.org/events/cyclone-winston-2016#more).
+
+- Relief Web. 04 April 2015 [*End of Mission Report: United Nations Disaster Assessment & Coordination Team (UNDAC) Tropical Cyclone Pam Vanuatu*.](https://reliefweb.int/report/vanuatu/end-mission-report-united-nations-disaster-assessment-coordination-team-undac).
+</div>
