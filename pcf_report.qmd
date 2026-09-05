@@ -85,7 +85,7 @@ On March 13th 2015, an ominous sensation swept over the shores of Port Vila. Hot
 
 That evening, just before midnight, **Pam**, a category five cyclone, struck Vanuatu’s capital with extremely destructive force. Winds reaching 250kmph ripped off metal roofs from houses and schools; communications and power infrastructure were destroyed or heavily damaged; crops were wiped out and food stocks blown into debris. The devastation was unprecedented, affecting 188,000 people (over half the population), with up to 90% of buildings damaged or destroyed. Total estimated economic losses reached \$449 million (roughly 64% of Vanuatu’s GDP).
 
-![Cyclone Pam Aftermath](assets/cyclone_pam_disaster.jpeg){fig-alt="Cyclone Pam Aftermath" width="60%"}
+![Credit of original image: UNICEF/Hing](assets/cyclone_pam_disaster.jpeg){fig-alt="Image of Cyclone Destruction in the Pacific" width="60%"}
 
 By and large, the Pacific Region is one of the most vulnerable regions in the world. Perennial friction between the Australian and Pacific tectonic plates trigger earthquakes and volcanic activity; sometimes resulting in massive tsunamis. Shifts in ocean currents and weather patterns such as El Niño generate cyclones and droughts. For people living in this vast region, such natural disasters are nothing new.
 
@@ -95,7 +95,7 @@ Statistics from the Pacific Data Hub show that, during the last decade, disaster
 
 Only a year after Pam’s tragic appearance, **Winston** emerged. Back then, the fiercest tropical storm ever recorded in the Southern Hemisphere. Its trajectory was unusual; it followed a big counter-clockwise loop to the east of Fiji, accumulating strength before striking Viti Levu, Fiji’s largest island. The human and economic toll were catastrophic: more than half a million people were affected and economic losses reached 10% of GDP.
 
-```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.height=6}
+```{r fig1-pacific-disasters, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.height=6, fig.alt="Chart: Since 2015, most Pacific countries have experienced at least one disaster affecting 25% or more of their population (highlighted)"}
 # Affected Persons by Disasters, Pacific Data Hub dataset
 p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
   geom_vline(
@@ -145,7 +145,7 @@ p1 <- ggplot(pcf_dis_affected, aes(x = Year, y = Country)) +
 print(p1)
 ```
 
-```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.height=5.5}
+```{r fig2-economic-damage, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.height=5.5, fig.alt="Chart: The damage to food stocks and critical infrastructure has reached new heights"}
 # Economic Losses, Pacific Data Hub
 pcf_dis_economic_vu <- pcf_dis_economic %>% filter(Country == "Vanuatu")
 
@@ -284,9 +284,7 @@ People in the Pacific are familiar with El Niño - a recurring climate pattern d
 
 However, the data reveals another important milestone reached in 2015. For years, sea temperatures in the South Pacific have been rising steadily due to climate change and a warming planet. But in 2015, near the island of Kiribati, the first temperature anomaly \> 1°C was recorded. Since then, four more anomalies have hit that threshold.
 
-Although climate change and El Niño are not associated with each other, they amplify each other’s effects. The upshot for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones like Pam and Winston; high-impact disasters that can upend the lives of so many people and bring unprecedented damage on the economies that sustain them.
-
-```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H'}
+```{r fig3-hot-water, echo=FALSE, warning=FALSE, message=FALSE, fig.pos='H', fig.alt="The heat, like the damage, keeps climbing. Sea temperature anomalies in the South Pacific have followed an upward trend for two decades"}
 # Recreate Fig.3 from pacific_data_viz.R
 max_temp <- pcf_sea_anomalies %>% pull(Temp) %>% max(na.rm = TRUE)
 min_temp <- pcf_sea_anomalies %>% pull(Temp) %>% min(na.rm = TRUE)
@@ -339,6 +337,8 @@ ps1 <- ggplot(pcf_sea_anomalies, aes(x = Year, y = Temp)) +
 # Print the plot
 print(ps1)
 ```
+
+Although climate change and El Niño are not associated with each other, they amplify each other’s effects. The upshot for people living in the South Pacific is warmer sea temperatures and a greater risk of cyclones like Pam and Winston; high-impact disasters that can upend the lives of so many people and bring unprecedented damage on the economies that sustain them.
 
 The message is clear: **climate change is the single greatest threat to the livelihoods, security and well-being of the peoples of the Pacific**. How can the Pacific South prepare for this new era?
 
